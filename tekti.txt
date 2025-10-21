@@ -4,3 +4,6 @@ muokkaus
 
 
 tässä tulee kuudennen commitin teksti jonka jälkeen siirryn seuyraavaan viaheeseen
+
+
+tässä branchissä päivitän tekstitiedostoa uudessa branchissa ja mergeän sen sitten mainiin
