@@ -1,3 +1,6 @@
 tämä on tektitiedosto puskua varten
 
 muokkaus
+
+
+tässä tulee kuudennen commitin teksti jonka jälkeen siirryn seuyraavaan viaheeseen
