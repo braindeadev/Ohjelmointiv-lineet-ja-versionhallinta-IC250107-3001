@@ -1,4 +1,3 @@
 tämä on tektitiedosto puskua varten
 
 muokkaus
-lisäys mikä poistetaan
