@@ -7,3 +7,5 @@ tässä tulee kuudennen commitin teksti jonka jälkeen siirryn seuyraavaan viahe
 
 
 tässä branchissä päivitän tekstitiedostoa uudessa branchissa ja mergeän sen sitten mainiin
+
+tässä on tekstiä joka tehtiin ensin vahingossa mainiin ja siitetään stashin avulla toiseen branchiin
