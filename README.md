@@ -39,6 +39,7 @@ ja puskin branchien muutokset komennolla
 git push
 
 
+6.
 tein merge errorin ensin tekemällä muutoksia "branch_uusi_tiedosto.txt" tiedostoon jonka jälkeen committasin ne ja siirryin uuteen "merge_error" branchiin ja tein samaan tiedostoon muutoksia ja committasin ne
 nyt kun koitin mergetä branchin mainiin sain merge errorin
 "Auto-merging README.md
@@ -48,4 +49,13 @@ Automatic merge failed; fix conflicts and then commit the result."
 korjasin merge errorin visual studiolla (niinkuin oli ohjeissa annettu) käytin visualstudion omaa työkalua ja valitsin "Accept Both Changes" koska muutokst olivat pienia ja pystyin ne mergeämään järkevästi. tämän jälkeen mainin ja "merge_error" branchin muutokset tulivat voimaan. nyt molemmat muutokset lukevat "branch_uusi_tiedosto.txt" teidostosa allekkain
 
 lopuski lisäsin korjatun "branch_uus_teidosto.txt" committiin committasin sen kommentilla ja puskin gittiin. näin olemme korjanneet merge errorin.
+
+7.
+tein vahingossa muutoskia jotka piti tehdä tiseen branchiin mainissa käytin komentoa git stash joka otti muutokset talteen ja poisti ne mainista. tein uuden branchin muutosta verten komennolla git chekout -b stash. siirryin stash nimiseen bracnhiin ja käytin komentoa git stash pop jolloin tallessa tehty muutos siityi nykyiseen branchiin.
+
+8. 
+
+
+
+
 
