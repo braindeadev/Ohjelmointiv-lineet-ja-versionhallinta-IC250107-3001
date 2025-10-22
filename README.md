@@ -1,13 +1,14 @@
 # Ohjelmointiv-lineet-ja-versionhallinta-IC250107-3001
-
 Kurssin "Ohjelmointivälineet ja versionhallinta IC250107-3001" lopputyö
 
+2,
 Clonasin ensin repositorioni komennolla:
 
 ```bash
 git clone git@github.com:braindeadev/Ohjelmointiv-lineet-ja-versionhallinta-IC250107-3001.git
 ```
 
+3.
 Sitten lisäsin ylläolevan tekstin "README.md" tiedostoon ja puskin sen GitHubiin. Käytin kommentteja:
 
 ```bash
@@ -17,15 +18,19 @@ git commit -m "kommentti"  # Tein commitin ja lisäsin kommentin
 git push          # Puskin commitit GitHubiin
 ```
 
+4.
 Toistin tämän 6 kertaa luoden uusia tekstitiedostoja ja muokaten niitä. Tällä kertaa käytin:
 
 ```bash
-git add "tiedoston_nimi"
+git add *         # Lisäsin kaikki trackaamattomat tiedostot committiin
+```
+sijaan komentoa
+```bash
+git add tekti.txt	#Lisäämällä komennon perään tiedoston nimen committaan vain tietyn tiedoston onkä kaikkia jos lisäisin "*" loppuun
 ```
 
-koska muokkasin vain "teksti.txt" tiedostoa.
-
-Loin kaksi uutta branchia:
+5.
+Loin kaksi uutta branchia komennoilla:
 
 ```bash
 git checkout -b tekstitiedoston_paivittaminen
@@ -38,19 +43,20 @@ git checkout -b uusi_tekstitiedosto
 Molemmissa brancheissä committasin muutokset:
 
 ```bash
-git commit -m "kommentti"
+git commit -m komentti(riippuan mitä commitissa lisätään/poistetaan)
 ```
 
 Mergesin molemmat branchit mainiin:
 
 ```bash
-git merge feature1 -m "Yhdistetään tekstitiedoston_paivittaminen"
-git merge feature2 -m "Yhdistetään uusi_tekstitiedosto"
 git checkout main
+git merge tekstitiedoston_paivittaminen -m "Yhdistetään tekstitiedoston_paivittaminen"
+git merge uusi_tekstitiedosto -m "Yhdistetään uusi_tekstitiedosto"
 git push
 ```
 
-Tein merge errorin seuraavasti: ensin muokkasin "branch_uusi_tiedosto.txt" tiedostoa mainissa ja committasin muutokset. Sitten loin "merge_error" branchin, tein samoihin kohtiin muutoksia ja committasin ne. Kun yritin mergetä branchin mainiin, sain merge-konfliktin:
+6.
+Tein merge konfliktin seuraavasti: ensin muokkasin "branch_uusi_tiedosto.txt" tiedostoa mainissa ja committasin muutokset. Sitten loin "merge_error" branchin, tein "branch_uusi_tiedosto.txt" tiedostoon muutoksia ja committasin ne. Kun yritin mergetä branchin mainiin, sain merge-konfliktin:
 
 ```text
 Auto-merging README.md
@@ -58,34 +64,37 @@ CONFLICT (content): Merge conflict in README.md
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-Korjasin merge-konfliktin Visual Studiolla käyttämällä "Accept Both Changes". Commitoin muutokset ja puskin ne GitHubiin. Nyt molemmat muutokset näkyvät "branch_uusi_tiedosto.txt" tiedostossa allekkain.
+Korjasin merge-konfliktin Visual Studiolla käyttämällä "Accept Both Changes" valintaa. Nyt molemmat muutokset näkyvät "branch_uusi_tiedosto.txt" tiedostossa allekkain.
 
 Lopuksi committasin korjatun tiedoston ja puskin sen GitHubiin. Näin merge error korjattiin.
 
-Tein vahingossa muutoksia mainiin, jotka piti tehdä toiseen branchiin. Käytin:
+7.
+Tein "vahingossa" muutoksia mainiin, jotka piti tehdä toiseen branchiin. Käytin:
 
 ```bash
 git stash
-git checkout -b stash
-git stash pop
+git checkout -b stash	# tei ominaisuudelle uuden branchin "stash" joka näin jälkikäteen todeten ei ole kauhean hyvä nimi branchille
+git stash pop	# tallennettava muutos siirtui nykyiseen branchiin.
 ```
 
-jolloin tallessa oleva muutos siirtyi uuteen branchiin.
 
+8.
 Tein commitin mainiin nimellä "revertattava commit", jonka sitten revertasin:
 
 ```bash
-git revert HEAD
+git revert HEAD	#tekee uuden kommitin jossa poistuu viimeisin commit
 ```
 
-Koska se oli viimeisin commit, tämä peruutti sen helposti.
+Koska revertattava commit oli viimeisin, tämä peruutti sen helposti.
 
+9.
 Hain commitin toisesta branchista mainiin:
 
 ```bash
-git cherry-pick 75bffbe
+git cherry-pick 75bffbe #tämä commit on sama commit missä "siirsin" ominausuuden mainista uuteen branchiin ja nyt sama teksi on uudestaan manissa
 ```
 
+10.
 Lisäsin repoon tagin:
 
 ```bash
@@ -93,18 +102,22 @@ git tag v1.0.0
 git push origin v1.0.0
 ```
 
-Loin `.gitignore` tiedoston ja lisäsin siihen:
+11.
+Loin komennolla `.gitignore` tiedoston ja lisäsin siihen .env tiedostot:
+Aluksi olin unohtanut lisätä "*" .env eteen jonka takia .gitignore ei toiminut!:
 
 ```bash
 touch .gitignore
 ```
 
+.gitignore sisältö:
 ```
 *.env
 ```
 
 Tämä poistaa kaikki `.env` loppuiset tiedostot seurannasta.
 
+12.
 Siirryin feature-haaroille ja tein rebasen mainiin:
 
 ```bash
@@ -116,8 +129,10 @@ git rebase main
 
 Lopuksi puskin molemmat branchit GitHubiin:
 
+13
 ```bash
-git push origin "branchin_nimi"
+git push origin tekstitiedoston_paivittaminen
+git push origin uusi_tekstitiedosto
 ```
 
 - "tekstitiedoston_paivittaminen" branch oli identtinen mainin kanssa, joten mergeä ei tarvittu  
