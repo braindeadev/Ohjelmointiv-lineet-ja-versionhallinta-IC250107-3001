@@ -1,7 +1,7 @@
 # Ohjelmointivälineet-ja-versionhallinta-IC250107-3001
 Kurssin "Ohjelmointivälineet ja versionhallinta IC250107-3001" lopputyö
 
-1 ja 2.
+2.
 Clonasin ensin repositorioni käyttäen SSH-yhteyttä komennolla:
 
 ```bash
