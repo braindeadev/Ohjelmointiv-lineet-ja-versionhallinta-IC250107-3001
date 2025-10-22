@@ -19,7 +19,7 @@ git push          # Puskin commitit GitHubiin
 ```
 
 4.
-Toistin tämän 6 kertaa luoden uusia tekstitiedostoja ja muokaten niitä. Tällä kertaa käytin:
+Toistin tämän 6 kertaa muokaten tekti.txt tiedoston sisältöä eri tavoin. Tällä kertaa käytin:
 
 ```bash
 git add *         # Lisäsin kaikki trackaamattomat tiedostot committiin
