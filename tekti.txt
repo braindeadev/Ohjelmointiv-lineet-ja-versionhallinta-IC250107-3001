@@ -7,3 +7,5 @@ tässä tulee kuudennen commitin teksti jonka jälkeen siirryn seuyraavaan viahe
 
 
 tässä branchissä päivitän tekstitiedostoa uudessa branchissa ja mergeän sen sitten mainiin
+
+muutos joka revertataan
