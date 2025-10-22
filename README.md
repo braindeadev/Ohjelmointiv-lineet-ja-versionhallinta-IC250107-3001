@@ -54,7 +54,16 @@ lopuski lisäsin korjatun "branch_uus_teidosto.txt" committiin committasin sen k
 tein vahingossa muutoskia jotka piti tehdä tiseen branchiin mainissa käytin komentoa git stash joka otti muutokset talteen ja poisti ne mainista. tein uuden branchin muutosta verten komennolla git chekout -b stash. siirryin stash nimiseen bracnhiin ja käytin komentoa git stash pop jolloin tallessa tehty muutos siityi nykyiseen branchiin.
 
 8. 
+tein comitin mainiin "revertattava commit" commitin jonka sitten revertasin komennolla git revert HEAD koska se oli viimeisn kommitti jonka tein ja sain tuolla helposti poruttua viimeisimmän kommittini
 
+9. 
+käytin $ git cherry-pick 75bffbe kommentoa mainissa jolla hain mainiin commitin jossa aijemmin siirsin muutoksia stash komennolla eri branchiin
+
+10.
+lisäsin repolleni tagin v1.0.0 komenola $git tag v1.0.0 ja puskin sen $git push origin v1.0.0
+
+11.
+lisäsin git ignore tiedoston "touch .gitignore" komennolla ja lisäsin git ignore tiedostoon *.env kohdan joka pois lukee kaikki .env loppuiset tiedostot
 
 
 
