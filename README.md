@@ -69,37 +69,37 @@ Korjasin merge-konfliktin Visual Studiolla käyttämällä "Accept Both Changes"
 Lopuksi committasin korjatun tiedoston ja puskin sen GitHubiin. Näin merge error korjattiin.
 
 7.
-Tein "vahingossa" muutoksia mainiin, jotka piti tehdä toiseen branchiin. Käytin:
+Tein "vahingossa" muutoksia mainiin, jotka piti tehdä toiseen branchiin. Käytin git stash ominaisuutta ominaisuuden "siirtämiseksi" uuteen branchiin:
 
 ```bash
-git stash
-git checkout -b stash	# tei ominaisuudelle uuden branchin "stash" joka näin jälkikäteen todeten ei ole kauhean hyvä nimi branchille
-git stash pop	# tallennettava muutos siirtui nykyiseen branchiin.
+git stash	#varastoi uuden ominaisuuden talteen
+git checkout -b stash	# tei ominaisuudelle uuden branchin "stash" joka näin jälkikäteen todeten ei ole kauhean hyvä nimi branchille.
+git stash pop	#varastoitu ominaisuus palautetaan säilöstä sen hetkiselle branchille.
 ```
 
 
 8.
-Tein commitin mainiin nimellä "revertattava commit", jonka sitten revertasin:
+Tein commitin mainiin nimellä "revertattava commit", jonka sitten revertasin komennolla:
 
 ```bash
-git revert HEAD	#tekee uuden kommitin jossa poistuu viimeisin commit
+git revert HEAD	#tekee uuden kommitin jossa "poistuu" viimeisin commit
 ```
 
 Koska revertattava commit oli viimeisin, tämä peruutti sen helposti.
 
 9.
-Hain commitin toisesta branchista mainiin:
+Hain commitin toisesta branchista mainiin komennolla:
 
 ```bash
-git cherry-pick 75bffbe #tämä commit on sama commit missä "siirsin" ominausuuden mainista uuteen branchiin ja nyt sama teksi on uudestaan manissa
+git cherry-pick 75bffbe #tämä commit(75bffbe) on sama commit missä "siirsin" ominausuuden mainista uuteen branchiin ja nyt sama teksi on uudestaan manissa
 ```
 
 10.
-Lisäsin repoon tagin:
+Lisäsin repoon tagin komennoilla:
 
 ```bash
-git tag v1.0.0
-git push origin v1.0.0
+git tag v1.0.0	#loin uuden tagin
+git push origin v1.0.0	#puskin sen gittiin
 ```
 
 11.
@@ -107,33 +107,34 @@ Loin komennolla `.gitignore` tiedoston ja lisäsin siihen .env tiedostot:
 Aluksi olin unohtanut lisätä "*" .env eteen jonka takia .gitignore ei toiminut!:
 
 ```bash
-touch .gitignore
+touch .gitignore	#luo ".gitignore" tiedoston nykyiseen hakemistoon
 ```
 
 .gitignore sisältö:
 ```
 *.env
 ```
-
-Tämä poistaa kaikki `.env` loppuiset tiedostot seurannasta.
+Tämä poistaa kaikki `.env` loppuiset tiedostot seurannasta.:
 
 12.
-Siirryin feature-haaroille ja tein rebasen mainiin:
+Siirryin yksitellen brancheiileni ja suoritin komennon:
 
 ```bash
-git rebase main
+git rebase main #mergeää branchin "mainin eteen" ja tekee commit historiasta lineaarisen
 ```
 
 - "uusi_tekstitiedosto" haarassa rebase onnistui ongelmitta  
-- "tekstitiedoston_paivittaminen" haarassa tuli aluksi merge error, joka johtui vanhasta stashista. Droppasin shasin, korjasin merge errorin ja rebase onnistui.
+- "tekstitiedoston_paivittaminen" haarassa tuli aluksi merge error, joka johtui vanhasta stashista. Droppasin stashin joka korjasi merge errorin jonka jälkeen rebase onnistui.
+
+
+13.
 
 Lopuksi puskin molemmat branchit GitHubiin:
 
-13.
 ```bash
 git push origin tekstitiedoston_paivittaminen
 git push origin uusi_tekstitiedosto
 ```
 
-- "tekstitiedoston_paivittaminen" branch oli identtinen mainin kanssa, joten mergeä ei tarvittu  
-- "uusi_tekstitiedosto" branchissa tein pull requestin, tarkistin muutokset ja mergein onnistui GitHubissa painamalla "merge pull request".
+- "tekstitiedoston_paivittaminen" branch oli jo identtinen mainin kanssa, joten mergeä ei tarvittu  
+- "uusi_tekstitiedosto" branchissa tein pull requestin, tarkistin muutokset ja merge onnistui GitHubissa painamalla "merge pull request".
