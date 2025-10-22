@@ -1,70 +1,124 @@
 # Ohjelmointiv-lineet-ja-versionhallinta-IC250107-3001
+
 Kurssin "Ohjelmointivälineet ja versionhallinta IC250107-3001" lopputyö
 
+Clonasin ensin repositorioni komennolla:
 
-clonasin ensin repositorioni komennolla:
+```bash
+git clone git@github.com:braindeadev/Ohjelmointiv-lineet-ja-versionhallinta-IC250107-3001.git
+```
 
-$ git clone git@github.com:braindeadev/Ohjelmointiv-lineet-ja-versionhallinta-IC250107-3001.git
+Sitten lisäsin ylläolevan tekstin "README.md" tiedostoon ja puskin sen GitHubiin. Käytin kommentteja:
 
+```bash
+git status        # Katsoin committini statuksen
+git add *         # Lisäsin kaikki trackaamattomat tiedostot committiin
+git commit -m "kommentti"  # Tein commitin ja lisäsin kommentin
+git push          # Puskin commitit GitHubiin
+```
 
-sittein lisäsin ylläolevan tekstin "README.md" tiedostoon ja puskin sen kittin
-käytin kommentoja 
+Toistin tämän 6 kertaa luoden uusia tekstitiedostoja ja muokaten niitä. Tällä kertaa käytin:
 
-"git status" jolla katsoin committini statuksen
-"git add *" jolla lisäsin kaikki lisäsin trackaamattömät tiedostot committiin
-"git commit -m "*kommentti*" jolla committasin tiedostot ja m- jälkeen hakamerkkien sisään kommentin jolla erottaa mitä commit on tehnyt
-"git puhs" jolla lpuksi puskinn committini githubiin
+```bash
+git add "tiedoston_nimi"
+```
 
+koska muokkasin vain "teksti.txt" tiedostoa.
 
-toistin tämän 6 kertaa jossa loin uuden tekstitiedoston ja tein siihen muutoksia lisäämällä ja poistamalla tekstiä
-tällä kertaa kuitenkin käytin "git add "teidoston nimi" koska muokkasin vain "tekti.txt" tiedostoa
+Loin kaksi uutta branchia:
 
-loin kaksi uutta branchia "tekstitiedoston_paivittaminen" ja "uusi_tekstitiedosto" komennoilla
+```bash
 git checkout -b tekstitiedoston_paivittaminen
 git checkout -b uusi_tekstitiedosto
+```
 
+- "tekstitiedoston_paivittaminen" branchissä lisäsin uutta tekstiä "teksti.txt" tiedostoon
+- "uusi_tekstitiedosto" branchissä loin uuden tiedoston "branch_uusi_tiedosto.txt"
 
-"tekstitiedoston_paivittaminen" branchissä lisäsin uutta teksiä "tekti.txt" tiedostoon 
-ja "uusi_tekstitiedosto" branchissä loin uuden tiedoston "branch_uusi_tiedosto.txt"
+Molemmissa brancheissä committasin muutokset:
 
-molemmissa brancheissä committasin muutokset git commit -m "kommentti" komennolla jonka jälkeen mergesin molemmat branhit mainiin komennoilla
+```bash
+git commit -m "kommentti"
+```
 
-git merge feature1 -m "Yhdistetään tekstitiedoston_paivittaminen
-git merge feature2 -m "Yhdistetään uusi_tekstitiedosto
+Mergesin molemmat branchit mainiin:
 
-siten siirryin itse mainiin komennolla
+```bash
+git merge feature1 -m "Yhdistetään tekstitiedoston_paivittaminen"
+git merge feature2 -m "Yhdistetään uusi_tekstitiedosto"
 git checkout main
-
-ja puskin branchien muutokset komennolla
 git push
+```
 
+Tein merge errorin seuraavasti: ensin muokkasin "branch_uusi_tiedosto.txt" tiedostoa mainissa ja committasin muutokset. Sitten loin "merge_error" branchin, tein samoihin kohtiin muutoksia ja committasin ne. Kun yritin mergetä branchin mainiin, sain merge-konfliktin:
 
-6.
-tein merge errorin ensin tekemällä muutoksia "branch_uusi_tiedosto.txt" tiedostoon jonka jälkeen committasin ne ja siirryin uuteen "merge_error" branchiin ja tein samaan tiedostoon muutoksia ja committasin ne
-nyt kun koitin mergetä branchin mainiin sain merge errorin
-"Auto-merging README.md
+```text
+Auto-merging README.md
 CONFLICT (content): Merge conflict in README.md
-Automatic merge failed; fix conflicts and then commit the result."
+Automatic merge failed; fix conflicts and then commit the result.
+```
 
-korjasin merge errorin visual studiolla (niinkuin oli ohjeissa annettu) käytin visualstudion omaa työkalua ja valitsin "Accept Both Changes" koska muutokst olivat pienia ja pystyin ne mergeämään järkevästi. tämän jälkeen mainin ja "merge_error" branchin muutokset tulivat voimaan. nyt molemmat muutokset lukevat "branch_uusi_tiedosto.txt" teidostosa allekkain
+Korjasin merge-konfliktin Visual Studiolla käyttämällä "Accept Both Changes". Commitoin muutokset ja puskin ne GitHubiin. Nyt molemmat muutokset näkyvät "branch_uusi_tiedosto.txt" tiedostossa allekkain.
 
-lopuski lisäsin korjatun "branch_uus_teidosto.txt" committiin committasin sen kommentilla ja puskin gittiin. näin olemme korjanneet merge errorin.
+Lopuksi committasin korjatun tiedoston ja puskin sen GitHubiin. Näin merge error korjattiin.
 
-7.
-tein vahingossa muutoskia jotka piti tehdä tiseen branchiin mainissa käytin komentoa git stash joka otti muutokset talteen ja poisti ne mainista. tein uuden branchin muutosta verten komennolla git chekout -b stash. siirryin stash nimiseen bracnhiin ja käytin komentoa git stash pop jolloin tallessa tehty muutos siityi nykyiseen branchiin.
+Tein vahingossa muutoksia mainiin, jotka piti tehdä toiseen branchiin. Käytin:
 
-8. 
-tein comitin mainiin "revertattava commit" commitin jonka sitten revertasin komennolla git revert HEAD koska se oli viimeisn kommitti jonka tein ja sain tuolla helposti poruttua viimeisimmän kommittini
+```bash
+git stash
+git checkout -b stash
+git stash pop
+```
 
-9. 
-käytin $ git cherry-pick 75bffbe kommentoa mainissa jolla hain mainiin commitin jossa aijemmin siirsin muutoksia stash komennolla eri branchiin
+jolloin tallessa oleva muutos siirtyi uuteen branchiin.
 
-10.
-lisäsin repolleni tagin v1.0.0 komenola $git tag v1.0.0 ja puskin sen $git push origin v1.0.0
+Tein commitin mainiin nimellä "revertattava commit", jonka sitten revertasin:
 
-11.
-lisäsin git ignore tiedoston "touch .gitignore" komennolla ja lisäsin git ignore tiedostoon *.env kohdan joka pois lukee kaikki .env loppuiset tiedostot
+```bash
+git revert HEAD
+```
 
+Koska se oli viimeisin commit, tämä peruutti sen helposti.
 
+Hain commitin toisesta branchista mainiin:
 
+```bash
+git cherry-pick 75bffbe
+```
 
+Lisäsin repoon tagin:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+Loin `.gitignore` tiedoston ja lisäsin siihen:
+
+```bash
+touch .gitignore
+```
+
+```
+*.env
+```
+
+Tämä poistaa kaikki `.env` loppuiset tiedostot seurannasta.
+
+Siirryin feature-haaroille ja tein rebasen mainiin:
+
+```bash
+git rebase main
+```
+
+- "uusi_tekstitiedosto" haarassa rebase onnistui ongelmitta  
+- "tekstitiedoston_paivittaminen" haarassa tuli aluksi merge error, joka johtui vanhasta stashista. Droppasin shasin, korjasin merge errorin ja rebase onnistui.
+
+Lopuksi puskin molemmat branchit GitHubiin:
+
+```bash
+git push origin "branchin_nimi"
+```
+
+- "tekstitiedoston_paivittaminen" branch oli identtinen mainin kanssa, joten mergeä ei tarvittu  
+- "uusi_tekstitiedosto" branchissa tein pull requestin, tarkistin muutokset ja mergein onnistui GitHubissa painamalla "merge pull request".
