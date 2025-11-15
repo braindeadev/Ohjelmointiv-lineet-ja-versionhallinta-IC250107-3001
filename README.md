@@ -138,3 +138,20 @@ git push origin uusi_tekstitiedosto
 
 - "tekstitiedoston_paivittaminen" branch oli jo identtinen mainin kanssa, joten mergeä ei tarvittu  
 - "uusi_tekstitiedosto" branchissa tein pull requestin, tarkistin muutokset ja merge onnistui GitHubissa painamalla "merge pull request".
+
+## Kokemuksia lopputyöstä
+
+Lopputyö itsessään sujui hyvin muutamaa mokaa lukuun ottamatta, mutta nekin ratkesivat nopeasti, koska minulla oli jo ennestään osaamista Gitin käytössä.
+
+### Haasteet
+
+Ehkä vaikeinta harjoitustyössä oli kuitenkin se, että en ollut osana mitään projektia, joten Gitin käytön "keksiminen tyhjästä" oli hieman hankalaa.  
+Välillä tuntui, että osa komennoista tuli käytettyä huonosti tai "ei oikein".
+
+### Mitä opin
+
+Opin kuitenkin uutta. Esimerkiksi:
+
+- En ollut aiemmin käyttänyt komentoa `git tag v1.0.0`
+- En ollut käyttänyt komentoa `git cherry-pick`
+- En ollut aiemmin itse mergetnyt mitään *main*-haaraan, vaan olen tehnyt pelkästään pull requesteja
