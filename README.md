@@ -1,14 +1,14 @@
 # Ohjelmointivälineet-ja-versionhallinta-IC250107-3001
-Kurssin "Ohjelmointivälineet ja versionhallinta IC250107-3001" lopputyö
+## Kurssin "Ohjelmointivälineet ja versionhallinta IC250107-3001" lopputyö
 
-2.
+### 2.
 Clonasin ensin repositorioni käyttäen SSH-yhteyttä komennolla:
 
 ```bash
 git clone git@github.com:braindeadev/Ohjelmointiv-lineet-ja-versionhallinta-IC250107-3001.git
 ```
 
-3.
+### 3.
 Sitten lisäsin ylläolevan tekstin "README.md" tiedostoon ja puskin sen GitHubiin. Käytin kommentteja:
 
 ```bash
@@ -18,7 +18,7 @@ git commit -m "kommentti"  # Tein commitin ja lisäsin kommentin
 git push          # Puskin commitit GitHubiin
 ```
 
-4.
+### 4.
 Toistin tämän 6 kertaa muokaten tekti.txt tiedoston sisältöä eri tavoin. Tällä kertaa käytin:
 
 ```bash
@@ -29,7 +29,7 @@ sijaan komentoa
 git add tekti.txt	#Lisäämällä komennon perään tiedoston nimen committaan vain tietyn tiedoston onkä kaikkia jos lisäisin "*" loppuun
 ```
 
-5.
+### 5.
 Loin kaksi uutta branchia komennoilla:
 
 ```bash
@@ -55,7 +55,7 @@ git merge uusi_tekstitiedosto -m "Yhdistetään uusi_tekstitiedosto"
 git push
 ```
 
-6.
+### 6.
 Tein merge konfliktin seuraavasti: ensin muokkasin "branch_uusi_tiedosto.txt" tiedostoa mainissa ja committasin muutokset. Sitten loin "merge_error" branchin, tein "branch_uusi_tiedosto.txt" tiedostoon muutoksia ja committasin ne. Kun yritin mergetä branchin mainiin, sain merge-konfliktin:
 
 ```text
@@ -68,7 +68,7 @@ Korjasin merge-konfliktin Visual Studiolla käyttämällä "Accept Both Changes"
 
 Lopuksi committasin korjatun tiedoston ja puskin sen GitHubiin. Näin merge error korjattiin.
 
-7.
+### 7.
 Tein "vahingossa" muutoksia mainiin, jotka piti tehdä toiseen branchiin. Käytin git stash ominaisuutta ominaisuuden "siirtämiseksi" uuteen branchiin:
 
 ```bash
@@ -78,7 +78,7 @@ git stash pop	#varastoitu ominaisuus palautetaan säilöstä sen hetkiselle bran
 ```
 
 
-8.
+### 8.
 Tein commitin mainiin nimellä "revertattava commit", jonka sitten revertasin komennolla:
 
 ```bash
@@ -87,14 +87,14 @@ git revert HEAD	#tekee uuden kommitin jossa "poistuu" viimeisin commit
 
 Koska revertattava commit oli viimeisin, tämä peruutti sen helposti.
 
-9.
+### 9.
 Hain commitin toisesta branchista mainiin komennolla:
 
 ```bash
 git cherry-pick 75bffbe #tämä commit(75bffbe) on sama commit missä "siirsin" ominausuuden mainista uuteen branchiin ja nyt sama teksi on uudestaan manissa
 ```
 
-10.
+### 10.
 Lisäsin repoon tagin komennoilla:
 
 ```bash
@@ -102,7 +102,7 @@ git tag v1.0.0	#loin uuden tagin
 git push origin v1.0.0	#puskin sen gittiin
 ```
 
-11.
+### 11.
 Loin komennolla `.gitignore` tiedoston ja lisäsin siihen .env tiedostot:
 Aluksi olin unohtanut lisätä "*" .env eteen jonka takia .gitignore ei toiminut!:
 
@@ -116,7 +116,7 @@ touch .gitignore	#luo ".gitignore" tiedoston nykyiseen hakemistoon
 ```
 Tämä poistaa kaikki `.env` loppuiset tiedostot seurannasta.:
 
-12.
+### 12.
 Siirryin yksitellen brancheiileni ja suoritin komennon:
 
 ```bash
@@ -127,7 +127,7 @@ git rebase main #mergeää branchin "mainin eteen" ja tekee commit historiasta l
 - "tekstitiedoston_paivittaminen" haarassa tuli aluksi merge error, joka johtui vanhasta stashista. Droppasin stashin joka korjasi merge errorin jonka jälkeen rebase onnistui.
 
 
-13.
+### 13.
 
 Lopuksi puskin molemmat branchit GitHubiin:
 
